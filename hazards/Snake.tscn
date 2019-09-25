@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://snek_boy/snek boye.gd" type="Script" id=1]
+[ext_resource path="res://snek_boy/snek2.png" type="Texture" id=2]
+[ext_resource path="res://snek_boy/snek3.png" type="Texture" id=3]
+[ext_resource path="res://snek_boy/snek4.png" type="Texture" id=4]
+[ext_resource path="res://snek_boy/snek5.png" type="Texture" id=5]
+[ext_resource path="res://snek_boy/snek6.png" type="Texture" id=6]
+[ext_resource path="res://snek_boy/snek7.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/KillThePlayer_poly.gd" type="Script" id=8]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Snake" type="Sprite"]
+
+position = Vector2( 30, 30 )
+scale = Vector2( 4, 4 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="." index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D" index="0"]
+
+position = Vector2( 1.38348, 10.8702 )
+shape = SubResource( 1 )
+
+[node name="animate" type="AnimatedSprite" parent="KinematicBody2D" index="1"]
+
+frames = SubResource( 2 )
+animation = "default"
+frame = 2
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area2D" type="Area2D" parent="KinematicBody2D" index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D/Area2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -1.64705, 15.405, -9.35448, 6.44285, -9.17524, -0.0995064, -7.56206, -3.68436, -12.3727, -5.84922, -12.0748, -10.2186, -9.09566, -13.6942, -0.35696, -13.8928, 5.00543, -12.006, 5.60125, -6.44504, 1.84818, -0.278749, 2.11705, 3.66459, 7.67357, 2.49951, 9.10751, 3.84383, 9.82448, 9.66922, 6.15001, 16.3908 )
+script = ExtResource( 8 )
+
+[connection signal="body_entered" from="KinematicBody2D/Area2D" to="KinematicBody2D/Area2D/CollisionPolygon2D" method="_on_Area2D_body_entered"]
+
+

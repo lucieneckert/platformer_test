@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://easy_level/level_marker_1.gd" type="Script" id=1]
+
+[node name="level_marker" type="Node"]
+
+script = ExtResource( 1 )
+
+

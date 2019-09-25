@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://misc icons/trophy.png" type="Texture" id=1]
+
+[node name="trophy" type="Sprite"]
+
+position = Vector2( 0.358467, 1.54758 )
+scale = Vector2( 1.30938, 1.30938 )
+texture = ExtResource( 1 )
+
+

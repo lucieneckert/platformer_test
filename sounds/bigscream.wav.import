@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bigscream.wav-6ea58467e56b97bc8a099b78bb8a61bd.sample"
+
+[deps]
+
+source_file="res://sounds/bigscream.wav"
+dest_files=[ "res://.import/bigscream.wav-6ea58467e56b97bc8a099b78bb8a61bd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

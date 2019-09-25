@@ -1,0 +1,300 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://hive/Floor.png" type="Texture" id=1]
+[ext_resource path="res://hive/corner.png" type="Texture" id=2]
+[ext_resource path="res://hive/block.png" type="Texture" id=3]
+[ext_resource path="res://hive/end.png" type="Texture" id=4]
+[ext_resource path="res://hive/honey brick.png" type="Texture" id=5]
+[ext_resource path="res://hive/oneway_1.png" type="Texture" id=6]
+[ext_resource path="res://hive/oneway_2.png" type="Texture" id=7]
+[ext_resource path="res://hive/Wall.png" type="Texture" id=8]
+[ext_resource path="res://hive/Side Wall.png" type="Texture" id=9]
+[ext_resource path="res://hive/me too thanks.png" type="Texture" id=10]
+[ext_resource path="res://hive/front tube.png" type="Texture" id=11]
+[ext_resource path="res://hive/back tube.png" type="Texture" id=12]
+[ext_resource path="res://hive/free hex.png" type="Texture" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 31.986, 31.9929 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32.1552, 5.94527 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 30 )
+
+[node name="Cabin Tiles" type="Node" index="0"]
+
+[node name="Floor" type="Sprite" parent="." index="0"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+position = Vector2( 32, 32 )
+texture = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor" index="0"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D" index="0"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+shape = SubResource( 1 )
+
+[node name="Corner" type="Sprite" parent="." index="1"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+position = Vector2( 292, 32 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Corner" index="0"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Corner/StaticBody2D" index="0"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+shape = SubResource( 1 )
+
+[node name="Block" type="Sprite" parent="." index="2"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+position = Vector2( 162, 32 )
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Block" index="0"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block/StaticBody2D" index="0"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+shape = SubResource( 1 )
+
+[node name="End" type="Sprite" parent="." index="3"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+position = Vector2( 422, 32 )
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="End" index="0"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="End/StaticBody2D" index="0"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+shape = SubResource( 1 )
+
+[node name="Wall_Hex" type="Sprite" parent="." index="4"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+position = Vector2( 550, 30 )
+texture = ExtResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall_Hex" index="0"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Hex/StaticBody2D" index="0"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+shape = SubResource( 1 )
+
+[node name="Oneway_1" type="Sprite" parent="." index="5"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+position = Vector2( 680, 30 )
+texture = ExtResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Oneway_1" index="0"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Oneway_1/StaticBody2D" index="0"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="Oneway_2" type="Sprite" parent="." index="6"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+position = Vector2( 810, 30 )
+texture = ExtResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Oneway_2" index="0"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Oneway_2/StaticBody2D" index="0"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+position = Vector2( 0.135986, 26.2457 )
+shape = SubResource( 2 )
+one_way_collision = true
+
+[node name="Wall" type="Sprite" parent="." index="7"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+position = Vector2( 30, 160 )
+texture = ExtResource( 8 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall" index="0"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D" index="0"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+shape = SubResource( 1 )
+
+[node name="Outer Wall" type="Sprite" parent="." index="8"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+position = Vector2( 160, 160 )
+texture = ExtResource( 9 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Outer Wall" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer Wall/StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Wall Alt" type="Sprite" parent="." index="9"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+position = Vector2( 290, 160 )
+texture = ExtResource( 10 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall Alt" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall Alt/StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Tube Front" type="Sprite" parent="." index="10"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+position = Vector2( 680, 160 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tube Front" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tube Front/StaticBody2D" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="Tube Back" type="Sprite" parent="." index="11"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+position = Vector2( 550, 160 )
+texture = ExtResource( 12 )
+
+[node name="Wall Alt2" type="Sprite" parent="." index="12"]
+
+modulate = Color( 0.883961, 1, 0, 1 )
+position = Vector2( 420, 160 )
+texture = ExtResource( 13 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall Alt2" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall Alt2/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -10, -30, -30, -10, -30, 10, -10, 30, 10, 30, 30, 10, 30, -10, 10, -30 )
+
+

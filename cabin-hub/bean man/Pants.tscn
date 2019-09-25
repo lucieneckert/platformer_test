@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://cabin-hub/bean man/Pants.gd" type="Script" id=1]
+[ext_resource path="res://cabin-hub/bean man/pants_1.png" type="Texture" id=2]
+[ext_resource path="res://cabin-hub/bean man/pants_2.png" type="Texture" id=3]
+[ext_resource path="res://font/mainfont.tres" type="DynamicFont" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16.7602, 16.2587 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[node name="Pants" type="Node2D"]
+
+scale = Vector2( 4, 4 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area2D" type="Area2D" parent="." index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+
+[node name="Label" type="Label" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -18.0
+margin_top = -23.0
+margin_right = 54.0
+margin_bottom = -11.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 4 )
+text = "Mr. Pants"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+
+

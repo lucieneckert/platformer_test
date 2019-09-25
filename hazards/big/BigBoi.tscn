@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://hazards/big/Big Boi.tscn" type="PackedScene" id=1]
+
+[node name="Bee" type="Node2D" index="0"]
+
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Big Boi" parent="." index="0" instance=ExtResource( 1 )]
+
+

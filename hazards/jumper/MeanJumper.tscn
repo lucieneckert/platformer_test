@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://hazards/jumper/MeanJumper.gd" type="Script" id=1]
+[ext_resource path="res://hazards/jumper/00.png" type="Texture" id=2]
+
+[node name="Jumper" type="Node2D"]
+
+scale = Vector2( 4, 4 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="." index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, 6.53883, 7.97451, 3.44498, 2.47172, 5.2635, 0.842136, 5.35797, -2.13362, 2.85456, -6.05407, -2.27036, -6.03045, -3.04973, -0.905531, -7.93848, 4.03045 )
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D" index="1"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+

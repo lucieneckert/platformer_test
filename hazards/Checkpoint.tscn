@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://misc icons/checkpoint.png" type="Texture" id=1]
+[ext_resource path="res://misc icons/checkpoint2.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/SetCheckpoint.gd" type="Script" id=3]
+[ext_resource path="res://sounds/checkpoint.wav" type="AudioStream" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[node name="Checkpoint" type="AnimatedSprite"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 1 )
+animation = "default"
+frame = 1
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area2D" type="Area2D" parent="." index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -7.19836, 16.0915, -5.91324, 2.85479, -7.19836, -6.26954, -7.06985, -13.8517, -2.18639, -14.2373, 0.897888, -11.153, 6.80943, -11.667, 6.93794, -2.79973, 3.2111, 3.11182, 6.16687, 16.0915 )
+script = ExtResource( 3 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Area2D/CollisionPolygon2D" index="0"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[connection signal="body_entered" from="Area2D" to="Area2D/CollisionPolygon2D" method="_on_Area2D_body_entered"]
+
+

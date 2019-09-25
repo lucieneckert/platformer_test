@@ -1,0 +1,322 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://world_map/tree.png" type="Texture" id=1]
+[ext_resource path="res://world_map/alt_block.png" type="Texture" id=2]
+[ext_resource path="res://world_map/block.png" type="Texture" id=3]
+[ext_resource path="res://world_map/edgeedge.png" type="Texture" id=4]
+[ext_resource path="res://world_map/floor.png" type="Texture" id=5]
+[ext_resource path="res://world_map/ground_floor.png" type="Texture" id=6]
+[ext_resource path="res://world_map/ground_corner.png" type="Texture" id=7]
+[ext_resource path="res://world_map/tree_alt.png" type="Texture" id=8]
+[ext_resource path="res://world_map/honeywedge.png" type="Texture" id=9]
+[ext_resource path="res://world_map/ground_floor_top.png" type="Texture" id=10]
+[ext_resource path="res://world_map/woods floor middle.png" type="Texture" id=11]
+[ext_resource path="res://world_map/woods floor edge.png" type="Texture" id=12]
+[ext_resource path="res://world_map/woodsfloorcorner.png" type="Texture" id=13]
+[ext_resource path="res://world_map/honey_floor.png" type="Texture" id=14]
+[ext_resource path="res://world_map/ground_floor_bottomedge.png" type="Texture" id=15]
+[ext_resource path="res://world_map/ground_floor_bottomcorner.png" type="Texture" id=16]
+[ext_resource path="res://world_map/honey_corner.png" type="Texture" id=17]
+[ext_resource path="res://world_map/ground_floor_top_flowers.png" type="Texture" id=18]
+
+[node name="Node" type="Node"]
+
+[node name="Tree1" type="Sprite" parent="." index="0"]
+
+position = Vector2( 32, 32 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tree1" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tree1/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[node name="woods_wall" type="Sprite" parent="." index="1"]
+
+position = Vector2( 690, 30 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Region", "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="woods_wall" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="woods_wall/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[node name="woods_wall2" type="Sprite" parent="." index="2"]
+
+position = Vector2( 820, 30 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Region", "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="woods_wall2" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="woods_wall2/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[node name="woods_wall3" type="Sprite" parent="." index="3"]
+
+position = Vector2( 690, 140 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Region", "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="woods_wall3" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="woods_wall3/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[node name="woods_wall4" type="Sprite" parent="." index="4"]
+
+position = Vector2( 820, 140 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Region", "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="woods_wall4" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="woods_wall4/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[node name="faketree" type="Sprite" parent="." index="5"]
+
+position = Vector2( 560, 30 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass Wall" type="Sprite" parent="." index="6"]
+
+position = Vector2( 420, 30 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Grass Wall" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grass Wall/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[node name="Grass Slope" type="Sprite" parent="." index="7"]
+
+position = Vector2( 420, 160 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Grass Slope" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grass Slope/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 0, 0, 32, -32, 32, 32, -32, 32 )
+
+[node name="Tree2" type="Sprite" parent="." index="8"]
+
+position = Vector2( 32, 160 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tree2" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tree2/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[node name="honeywedge" type="Sprite" parent="." index="9"]
+
+position = Vector2( 30, 270 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="honeywedge" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="honeywedge/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[node name="Grass Floor" type="Sprite" parent="." index="10"]
+
+position = Vector2( 160, 32 )
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="woods floor" type="Sprite" parent="." index="11"]
+
+position = Vector2( 690, 250 )
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="woods floor2" type="Sprite" parent="." index="12"]
+
+position = Vector2( 820, 250 )
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="woods floor3" type="Sprite" parent="." index="13"]
+
+position = Vector2( 690, 360 )
+texture = ExtResource( 13 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Honey Floor" type="Sprite" parent="." index="14"]
+
+position = Vector2( 160, 280 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass Floor Edge" type="Sprite" parent="." index="15"]
+
+position = Vector2( 160, 160 )
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass Floor Corner" type="Sprite" parent="." index="16"]
+
+position = Vector2( 288, 32 )
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Honey Floor Corner" type="Sprite" parent="." index="17"]
+
+position = Vector2( 290, 280 )
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass Floor Alt" type="Sprite" parent="." index="18"]
+
+position = Vector2( 288, 160 )
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+

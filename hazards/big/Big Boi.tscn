@@ -1,0 +1,131 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://hazards/bee/Big_BeeMovement.gd" type="Script" id=1]
+[ext_resource path="res://hazards/big/TongueAttack.gd" type="Script" id=2]
+[ext_resource path="res://hazards/big/tongue.png" type="Texture" id=3]
+[ext_resource path="res://sounds/tongue.wav" type="AudioStream" id=4]
+[ext_resource path="res://Scripts/ResetTheScene_area.gd" type="Script" id=5]
+[ext_resource path="res://hazards/big/phasetwo.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://sounds/roar.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/bigscream.wav" type="AudioStream" id=8]
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[node name="Big Boi" type="KinematicBody2D"]
+
+position = Vector2( 240.183, 240.183 )
+scale = Vector2( 11.5057, 11.5057 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="tongue base" type="Node2D" parent="." index="0"]
+
+position = Vector2( 42.6885, -3.52821 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="tongue" type="Sprite" parent="tongue base" index="0"]
+
+position = Vector2( -25.4922, -1.86859 )
+scale = Vector2( 1, 0.4 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="sound" type="AudioStreamPlayer2D" parent="tongue base" index="1"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Area2D" type="Area2D" parent="tongue base" index="2"]
+
+position = Vector2( -33.7194, 1.06707 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tongue base/Area2D" index="0"]
+
+position = Vector2( 33.8763, -1.85146 )
+scale = Vector2( 1, 0.6 )
+build_mode = 0
+polygon = PoolVector2Array( -57.464, -6.52257, 3.15823, -6.42995, 5.99135, -4.29915, 5.99023, 0.584246, 2.68831, 2.63629, -57.2713, 2.72699 )
+script = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="animate" type="AnimatedSprite" parent="." index="1"]
+
+frames = ExtResource( 6 )
+animation = "default"
+frame = 6
+playing = true
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Area2D" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]
+
+position = Vector2( -6.55495, -13.045 )
+scale = Vector2( 3.99226, 3.95903 )
+build_mode = 0
+polygon = PoolVector2Array( 11.5363, 15.4194, -6.74914, 15.2931, -7.92838, 0.180424, -6.752, -2.52882, -5.14784, -3.31307, -0.111269, -4.85084, 10.7849, -5.41916, 15.5441, -1.5672, 12.6009, 0.390361, 12.6635, 2.91624, 14.73, 4.8738 )
+script = ExtResource( 5 )
+
+[node name="roar" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="roar2" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
+
+shape = SubResource( 2 )
+disabled = true
+
+[connection signal="body_entered" from="tongue base/Area2D" to="tongue base/Area2D/CollisionPolygon2D" method="_on_Area2D_body_entered"]
+
+[connection signal="body_entered" from="Area2D" to="Area2D/CollisionPolygon2D" method="_on_Area2D_body_entered"]
+
+

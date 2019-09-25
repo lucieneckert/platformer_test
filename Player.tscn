@@ -1,0 +1,214 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://cat_thing_imnotanartist.png" type="Texture" id=2]
+[ext_resource path="res://cat_walk/norm_frames.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://PlayerAnimation.gd" type="Script" id=4]
+[ext_resource path="res://sounds/jump.wav" type="AudioStream" id=5]
+[ext_resource path="res://sounds/dash.wav" type="AudioStream" id=6]
+[ext_resource path="res://sounds/walljump.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/air.wav" type="AudioStream" id=8]
+[ext_resource path="res://sounds/death.wav" type="AudioStream" id=9]
+[ext_resource path="res://sounds/land.wav" type="AudioStream" id=10]
+[ext_resource path="res://sounds/pup.wav" type="AudioStream" id=11]
+[ext_resource path="res://form_change_effect/00.png" type="Texture" id=12]
+[ext_resource path="res://form_change_effect/01.png" type="Texture" id=13]
+[ext_resource path="res://form_change_effect/02.png" type="Texture" id=14]
+[ext_resource path="res://form_change_effect/03.png" type="Texture" id=15]
+[ext_resource path="res://form_change_effect/04.png" type="Texture" id=16]
+[ext_resource path="res://form_change_effect/05.png" type="Texture" id=17]
+[ext_resource path="res://form_change_effect/06.png" type="Texture" id=18]
+[ext_resource path="res://form_change_effect/07.png" type="Texture" id=19]
+[ext_resource path="res://form_change_effect/08.png" type="Texture" id=20]
+[ext_resource path="res://ground_effect/00.png" type="Texture" id=21]
+[ext_resource path="res://ground_effect/01.png" type="Texture" id=22]
+[ext_resource path="res://ground_effect/02.png" type="Texture" id=23]
+[ext_resource path="res://ground_effect/03.png" type="Texture" id=24]
+[ext_resource path="res://ground_effect/04.png" type="Texture" id=25]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 15.8567, 29.6741 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "default",
+"speed": 18.0
+} ]
+
+[node name="Player" type="KinematicBody2D" index="0"]
+
+position = Vector2( 105.691, 95.0527 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( -8.44875, -0.182816 )
+scale = Vector2( 4, 3.75 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -5.84228, -1.08269 )
+scale = Vector2( 0.996853, 0.966864 )
+shape = SubResource( 1 )
+
+[node name="Walking Sprite" type="AnimatedSprite" parent="." index="2"]
+
+position = Vector2( -8.19482, 0 )
+scale = Vector2( 4.3194, 3.75 )
+frames = ExtResource( 3 )
+animation = "default"
+flip_h = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="jump" type="AudioStreamPlayer2D" parent="." index="3"]
+
+stream = ExtResource( 5 )
+volume_db = -3.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="dash" type="AudioStreamPlayer2D" parent="." index="4"]
+
+stream = ExtResource( 6 )
+volume_db = -3.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="walljump" type="AudioStreamPlayer2D" parent="." index="5"]
+
+stream = ExtResource( 7 )
+volume_db = -3.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="air" type="AudioStreamPlayer2D" parent="." index="6"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="death" type="AudioStreamPlayer2D" parent="." index="7"]
+
+stream = ExtResource( 9 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="land" type="AudioStreamPlayer2D" parent="." index="8"]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="pup" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = ExtResource( 11 )
+volume_db = -9.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="FormChangeEffect" type="AnimatedSprite" parent="." index="10"]
+
+position = Vector2( -5.90563, -1.7065 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 8
+_sections_unfolded = [ "Transform" ]
+
+[node name="Camera2D" type="Camera2D" parent="." index="11"]
+
+position = Vector2( 18, -86 )
+scale = Vector2( 12.5, 10.5 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1.3, 1.3 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.1
+drag_margin_top = 0.2
+drag_margin_right = 0.1
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Drag Margin", "Smoothing" ]
+
+[node name="ground_effect" type="AnimatedSprite" parent="." index="12"]
+
+position = Vector2( -7.90561, 13.703 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 2
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="animation_finished" from="FormChangeEffect" to="." method="_on_FormChangeEffect_animation_finished"]
+
+[connection signal="animation_finished" from="ground_effect" to="." method="_on_ground_effect_animation_finished"]
+
+

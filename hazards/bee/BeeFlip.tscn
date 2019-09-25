@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://hazards/bee/BeeMove_flip.gd" type="Script" id=1]
+[ext_resource path="res://hazards/bee/bee_1.png" type="Texture" id=2]
+[ext_resource path="res://hazards/bee/bee_2.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/KillThePlayer_poly.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 7.26781, 2.12044 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Bee" type="Node2D"]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="." index="0"]
+
+scale = Vector2( 4, 4 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D" index="0"]
+
+position = Vector2( -0.146194, 1.09646 )
+shape = SubResource( 1 )
+
+[node name="animate" type="AnimatedSprite" parent="KinematicBody2D" index="1"]
+
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+
+[node name="Area2D" type="Area2D" parent="KinematicBody2D" index="2"]
+
+position = Vector2( 0, 5 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D/Area2D" index="0"]
+
+position = Vector2( 2.55817e-007, -4.02398 )
+build_mode = 0
+polygon = PoolVector2Array( -5, 6.52398, -8.10662, 2.67578, -7.5, -0.97602, -5, -0.97602, -5.14784, -3.31307, -9.11487e-007, -3.47602, 5.01181, -1.9228, 7.47151, -0.960308, 7.5, 1.52398, 6.82985, 5.56326, 5, 6.52398 )
+script = ExtResource( 4 )
+
+[connection signal="body_entered" from="KinematicBody2D/Area2D" to="KinematicBody2D/Area2D/CollisionPolygon2D" method="_on_Area2D_body_entered"]
+
+

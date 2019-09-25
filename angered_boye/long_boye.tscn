@@ -1,0 +1,52 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://angered_boye/angered lad.gd" type="Script" id=1]
+[ext_resource path="res://angered_boye/tall_1.png" type="Texture" id=2]
+[ext_resource path="res://angered_boye/tall_2.png" type="Texture" id=3]
+[ext_resource path="res://angered_boye/tall_3.png" type="Texture" id=4]
+[ext_resource path="res://angered_boye/tall_4.png" type="Texture" id=5]
+[ext_resource path="res://angered_boye/tall_5.png" type="Texture" id=6]
+[ext_resource path="res://angered_boye/tall_6.png" type="Texture" id=7]
+[ext_resource path="res://angered_boye/tall_7.png" type="Texture" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 7.98245, 13.0153 )
+
+[node name="Long Boye" type="KinematicBody2D"]
+
+position = Vector2( 16, -16 )
+scale = Vector2( 3, 3 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pickable", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="animate" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "default"
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 0.588146, -0.557635 )
+scale = Vector2( 1.04278, 1.21275 )
+shape = SubResource( 2 )
+
+
